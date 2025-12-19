@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Zentro",
     images: [
       {
-        url: "/icons/icon.png", 
+        url: "/images/zentro.png", 
         width: 1200,
         height: 630,
         alt: "Zentro Preview Image",
