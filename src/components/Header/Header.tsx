@@ -2,12 +2,27 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Heart, ShoppingCart, Menu, X, User } from "lucide-react"; // Import User
-import { useState } from "react";
+import { Search, Heart, ShoppingCart, Menu, X, User, ShoppingBag, Star, LogOut, XCircle } from "lucide-react"; 
+import { useState, useRef, useEffect } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false); 
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsUserDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // Navigation Links
   const navLinks = [
@@ -18,7 +33,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="border-b border-gray-200 mb-0">
+    <header className="border-b border-gray-200 mb-0 relative z-50">
       {/* Top Banner */}
       <div className="bg-black text-white text-xs sm:text-sm py-3 text-center px-4">
         <p>
@@ -75,10 +90,53 @@ const Navbar = () => {
             <Link href="/cart">
               <ShoppingCart className={`w-6 h-6 cursor-pointer transition ${pathname === '/cart' ? 'text-secondary' : 'hover:text-secondary'}`} />
             </Link>
-            {/* Added User Icon */}
-            <Link href="/account">
-              <User className={`w-6 h-6 cursor-pointer transition ${pathname === '/account' ? 'text-secondary fill-secondary' : 'hover:text-secondary'}`} />
-            </Link>
+            
+            {/* USER ICON WITH DROPDOWN */}
+            <div className="relative" ref={dropdownRef}>
+              <button 
+                onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition ${isUserDropdownOpen || pathname === '/account' ? 'bg-secondary text-white' : 'hover:bg-secondary hover:text-white'}`}
+              >
+                <User className="w-5 h-5" />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isUserDropdownOpen && (
+                <div className="absolute right-0 top-full mt-3 w-[250px] bg-black/40 backdrop-blur-md rounded-[4px] p-5 flex flex-col gap-4 text-white shadow-lg z-50 border border-white/10">
+                    
+                    {/* Manage Account */}
+                    <Link href="/account" className="flex items-center gap-3 hover:opacity-80 transition" onClick={() => setIsUserDropdownOpen(false)}>
+                      <User className="w-5 h-5" />
+                      <span className="text-sm">Manage My Account</span>
+                    </Link>
+
+                    {/* My Order */}
+                    <Link href="#" className="flex items-center gap-3 hover:opacity-80 transition" onClick={() => setIsUserDropdownOpen(false)}>
+                      <ShoppingBag className="w-5 h-5" />
+                      <span className="text-sm">My Order</span>
+                    </Link>
+
+                    {/* My Cancellations */}
+                    <Link href="#" className="flex items-center gap-3 hover:opacity-80 transition" onClick={() => setIsUserDropdownOpen(false)}>
+                      <XCircle className="w-5 h-5" />
+                      <span className="text-sm">My Cancellations</span>
+                    </Link>
+
+                    {/* My Reviews */}
+                    <Link href="#" className="flex items-center gap-3 hover:opacity-80 transition" onClick={() => setIsUserDropdownOpen(false)}>
+                      <Star className="w-5 h-5" />
+                      <span className="text-sm">My Reviews</span>
+                    </Link>
+
+                    {/* Logout */}
+                    <Link href="#" className="flex items-center gap-3 hover:opacity-80 transition mt-1" onClick={() => setIsUserDropdownOpen(false)}>
+                      <LogOut className="w-5 h-5" />
+                      <span className="text-sm">Logout</span>
+                    </Link>
+
+                </div>
+              )}
+            </div>
 
             {/* Mobile Menu Button */}
             <button 
