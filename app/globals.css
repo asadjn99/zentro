@@ -16,11 +16,11 @@ body {
 
 @layer components {
   .container-custom {
-    /* 1. Base: Full width with padding for mobile/tablet/laptop */
-    @apply w-full px-4 md:px-6;
-    
-    /* 2. Large Screens: Fix width to 1170px and center it */
-    /* We only remove padding when the screen is comfortably wider than 1170px */
+    @apply w-full max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-0;
+  
     @apply xl:max-w-[1170px] xl:mx-auto xl:px-0;
   }
 }
+
+
+
