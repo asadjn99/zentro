@@ -3,11 +3,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/src/components/Header/Header";
+import Footer from "@/src/components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Zentro - Exclusive E-Commerce",
+  title: "Zentro - E-Commerce",
   description: "Shop the best deals at Zentro",
 };
 
@@ -26,7 +27,7 @@ export default function RootLayout({
             {children}
         </main>
         
-        {/* <Footer /> We will add this later */}
+        <Footer />
       </body>
     </html>
   );
