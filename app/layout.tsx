@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
-import Header from "@/src/components/Header/Header";
+import Navbar from "@/src/components/Header/Header";
 import Footer from "@/src/components/Footer/Footer";
-import IntroBanner from "@/src/components/Common/IntroBanner";
+import IntroBanner from "@/src/components/Common/IntroBanner"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Zentro - E-Commerce",
-  description: "Shop the best deals at Zentro",
+  title: "Zentro | E-commerce",
+  description: "Built with Next.js and Tailwind CSS",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -19,16 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        < IntroBanner />
-
-        <Header />
-        
-        <main className="min-h-screen">
-            {children}
-        </main>
-        
+        <IntroBanner />
+        <Navbar />
+        {children}
         <Footer />
       </body>
     </html>

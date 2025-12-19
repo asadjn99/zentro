@@ -6,7 +6,6 @@ import MusicExperienceBanner from "@/src/components/Banner/MusicExperienceBanner
 import ExploreProducts from "@/src/components/ExploreProducts/ExploreProducts";
 import NewArrival from "@/src/components/NewArrival/NewArrival";
 import ServiceFeatures from "@/src/components/Footer/ServiceFeatures";
-import Footer from "@/src/components/Footer/Footer";
 
 
 export default function Home() {
@@ -21,7 +20,7 @@ export default function Home() {
       <ExploreProducts />
       <NewArrival />
       <ServiceFeatures />
-      <Footer />
+      
 
     </main>
   );
