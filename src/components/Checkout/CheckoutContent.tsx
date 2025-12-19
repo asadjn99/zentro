@@ -3,9 +3,13 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // 1. Import useRouter
+
+
+
 
 const CheckoutContent = () => {
-  // Mock Data for Order Summary
+  const router = useRouter(); // 2. Initialize router
   const cartItems = [
     { id: 1, name: "LCD Monitor", price: 650, image: "/shop/monitor.png" },
     { id: 2, name: "H1 Gamepad", price: 1100, image: "/shop/gamepad.png" },
@@ -16,6 +20,12 @@ const CheckoutContent = () => {
   const total = 1750;
 
   const [paymentMethod, setPaymentMethod] = useState("cod"); // Default to Cash on Delivery
+
+const handlePlaceOrder = () => {
+    // In a real app, We would validate forms and send data to backend ... ham dlat
+    router.push("/checkout/success");
+  };
+
 
   return (
     <div className="container-custom pt-10 pb-20">
@@ -218,7 +228,10 @@ const CheckoutContent = () => {
           </div>
 
           {/* Place Order Button */}
-          <button className="bg-btn-red text-white w-full sm:w-fit px-12 py-4 rounded-[4px] hover:bg-btn-hover-red transition font-medium mt-4">
+          <button 
+            onClick={handlePlaceOrder}
+            className="bg-btn-red text-white w-full sm:w-fit px-12 py-4 rounded-[4px] hover:bg-btn-hover-red transition font-medium mt-4"
+          >
             Place Order
           </button>
 
