@@ -7,15 +7,15 @@ import { useState } from "react";
 const ShopContent = () => {
   // Mock Products Data
   const products = [
-    { id: 1, title: "Havic HV G-92 Gamepad", price: 120, discount: 40, rating: 5, reviews: 88, image: "/shop/gamepad-red.png" },
+    { id: 1, title: "Havic HV G-92 Gamepad", price: 120, discount: 40, rating: 5, reviews: 88, image: "/shop/gamepad.png" },
     { id: 2, title: "AK-900 Wired Keyboard", price: 960, discount: 35, rating: 4, reviews: 75, image: "/shop/keyboard.png" },
     { id: 3, title: "IPS LCD Gaming Monitor", price: 370, discount: 30, rating: 5, reviews: 99, image: "/shop/monitor.png" },
     { id: 4, title: "RGB liquid CPU Cooler", price: 160, discount: 0, rating: 4.5, reviews: 65, image: "/shop/cooler.png" },
     { id: 5, title: "ASUS FHD Gaming Laptop", price: 700, discount: 0, rating: 5, reviews: 325, image: "/shop/laptop.png" },
     { id: 6, title: "Breed Dry Dog Food", price: 100, discount: 0, rating: 3, reviews: 35, image: "/shop/dog-food.png" },
-    { id: 7, title: "Canon EOS DSLR Camera", price: 360, discount: 0, rating: 4, reviews: 95, image: "/shop/camera.png" },
+    { id: 7, title: "Canon EOS DSLR Camera", price: 360, discount: 0, rating: 4, reviews: 95, image: "/shop/dslr-camera.png" },
     { id: 8, title: "ASUS FHD Gaming Laptop", price: 700, discount: 0, rating: 5, reviews: 325, image: "/shop/laptop.png" },
-    { id: 9, title: "Curology Product Set", price: 500, discount: 0, rating: 4, reviews: 145, image: "/shop/curology.png" },
+    { id: 9, title: "Curology Product Set", price: 500, discount: 0, rating: 4, reviews: 145, image: "/shop/monitor.png" },
   ];
 
   const categories = ["Woman's Fashion", "Men's Fashion", "Electronics", "Home & Lifestyle", "Medicine", "Sports & Outdoor", "Baby's & Toys", "Groceries & Pets", "Health & Beauty"];
