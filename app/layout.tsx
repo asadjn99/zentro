@@ -11,7 +11,24 @@ export const metadata: Metadata = {
   title: "Zentro | E-commerce",
   description: "Built with Next.js and Tailwind CSS",
   icons: {
-    icon: "/icon.svg",
+    icon: "/icon.svg", // icon - browser tab
+  },
+  //FOR WHATSAPP/SOCIAL MEDIA
+  openGraph: {
+    title: "Zentro | E-commerce",
+    description: "Shop the best deals on Zentro. Built by Asad Ullah.",
+    url: "https://zentro-byasad.netlify.app",
+    siteName: "Zentro",
+    images: [
+      {
+        url: "/icons/icon.png", 
+        width: 1200,
+        height: 630,
+        alt: "Zentro Preview Image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
   },
 };
 
