@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Zentro",
     images: [
       {
-        url: "/images/zentro.png", // Next.js will now auto-convert this to the full URL
+        url: "/icons/icon.png",
         width: 1200,
         height: 630,
         alt: "Zentro Preview Image",
